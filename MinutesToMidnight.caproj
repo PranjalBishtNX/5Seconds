@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>MinutesToMidnight</name>
+    <description></description>
+    <version>1.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>mq4njje893h0</unique-id>
+    <saved-with-version>24400</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+        <behavior author="Scirra" id="wrap" version="1">Wrap</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="glowhorizontal">Glow Horizontal</effect>
+        <effect author="Scirra" id="hsladjust">Adjust HSL</effect>
+        <effect author="Scirra" id="inverse">Inverse</effect>
+        <effect author="Scirra" id="scanlines">Scan lines</effect>
+        <effect author="Scirra" id="screen">Screen</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1600</width>
+        <height>900</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">Low quality</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Pause on unfocus">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">No</prop>
+        <prop name="Use iOS retina display">iPhone only</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="BG_BackBuildings" sid="157035983343295">
+            <plugin id="TiledBg" />
+            <texture original-source="S:\Pulkit Singh\Dreamhack_Assets\BG_Buildings_Far_01.png" />
+        </object-type>
+        <object-type name="CH_Maahi" sid="510574588112778">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Walkin" sid="190174376838758" type="boolean" />
+                <instance-variable name="PunchCooldown" sid="127653194867744" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="351402816812104">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Platform" sid="967979923156142">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="802163688932363" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.2" y="0.840909" />
+                            <point x="0.8" y="0.840909" />
+                            <point x="0.8" y="1" />
+                            <point x="0.2" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="Punch" pingpong="0" repeatcount="1" repeatto="0" sid="713519032112405" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.26" y="0.840909" />
+                            <point x="0.74" y="0.840909" />
+                            <point x="0.74" y="1" />
+                            <point x="0.26" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091" original-source="S:\Pulkit Singh\Dreamhack_Assets\CH_Anim_Punch_01a.png">
+                        <collision-poly>
+                            <point x="0.26" y="0.840909" />
+                            <point x="0.74" y="0.840909" />
+                            <point x="0.74" y="1" />
+                            <point x="0.26" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091" original-source="S:\Pulkit Singh\Dreamhack_Assets\CH_Anim_Punch_01b.png">
+                        <collision-poly>
+                            <point x="0.26" y="0.840909" />
+                            <point x="0.74" y="0.840909" />
+                            <point x="0.74" y="1" />
+                            <point x="0.26" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="PunchComeback" pingpong="0" repeatcount="1" repeatto="0" sid="871929015681081" speed="12">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.909091">
+                        <collision-poly>
+                            <point x="0.26" y="0.840909" />
+                            <point x="0.74" y="0.840909" />
+                            <point x="0.74" y="1" />
+                            <point x="0.26" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="701734387366542">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="OBJ_Wall" sid="863677238500290">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="939704776915834">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="622834268940555" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BG_Road" sid="153198272236377">
+            <plugin id="TiledBg" />
+            <texture original-source="S:\Pulkit Singh\Dreamhack_Assets\BG_Ground_01.png" />
+        </object-type>
+        <object-type name="UI_Filter" sid="420306001758924">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="ScanLines">
+                    <effect id="scanlines" />
+                </effect-type>
+                <effect-type name="Screen">
+                    <effect id="screen" />
+                </effect-type>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="400508848015426" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="CH_Enemy" sid="239550860559350">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="WaveID" sid="375631142773239" type="number" />
+                <instance-variable name="MissedChecked" sid="503526639148574" type="boolean" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="116161432205026" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.36" y="0.85" />
+                            <point x="0.6" y="0.85" />
+                            <point x="0.6" y="1" />
+                            <point x="0.36" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.36" y="0.85" />
+                            <point x="0.6" y="0.85" />
+                            <point x="0.6" y="1" />
+                            <point x="0.36" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.36" y="0.85" />
+                            <point x="0.6" y="0.85" />
+                            <point x="0.6" y="1" />
+                            <point x="0.36" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.36" y="0.85" />
+                            <point x="0.6" y="0.85" />
+                            <point x="0.6" y="1" />
+                            <point x="0.36" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="OBJ_EnemySpawner" sid="748068939532911">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="WaveMode" sid="155583030816773" type="boolean" />
+                <instance-variable name="NextSpawnX" sid="192123597007260" type="number" />
+                <instance-variable name="NextSpawnY" sid="424851949215151" type="number" />
+                <instance-variable comment="Number of Enemies in wave" name="EnmInWave" sid="132751138787335" type="number" />
+                <instance-variable name="On" sid="868102093409687" type="boolean" />
+                <instance-variable name="CurrentWave" sid="496886345845173" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="147320405576689" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="OBJ_BuildingSpawner" sid="264617620169671">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="On" sid="131334656564432" type="boolean" />
+                <instance-variable name="Alternate" sid="228042813334484" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="163917596086019" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BG_FrontBuildings" sid="987617816729504">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Altrernate" sid="729120808376958" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="562574961677801" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_01.png">
+                        <collision-poly>
+                            <point x="0" y="0.201236" />
+                            <point x="0.858348" y="0.206885" />
+                            <point x="0.858348" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_03.png">
+                        <image-point name="Imagepoint 1" x="2.31377" y="1.84977" />
+                        <collision-poly>
+                            <point x="0.0225734" y="0.00234742" />
+                            <point x="0.810383" y="0" />
+                            <point x="0.810383" y="1" />
+                            <point x="0.0225734" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_02.png">
+                        <image-point name="Imagepoint 1" x="0.869074" y="1" />
+                        <collision-poly>
+                            <point x="0" y="0.19685" />
+                            <point x="0.812641" y="0.19685" />
+                            <point x="0.812641" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_04.png">
+                        <image-point name="Imagepoint 1" x="0.842457" y="1.79952" />
+                        <collision-poly>
+                            <point x="0" y="0.0535387" />
+                            <point x="0.888148" y="0.0535387" />
+                            <point x="0.888148" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_05.png">
+                        <image-point name="Imagepoint 1" x="2.28731" y="3.66921" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.852611" y="0" />
+                            <point x="0.852611" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="S:\Pulkit Singh\Dreamhack_Assets\Main_Building_01.png">
+                        <image-point name="Imagepoint 1" x="0.00505902" y="1" />
+                        <collision-poly>
+                            <point x="0" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="CH_Shadow" sid="710934316310867">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="344387756813087">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="Inverse">
+                    <effect id="inverse" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="344902371647107" speed="5">
+                    <frame duration="1" hotspotX="0.626667" hotspotY="0.0733333" original-source="S:\Pulkit Singh\Dreamhack_Assets\CH_Shadow.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Lamp" sid="384995374665004">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Wrap" sid="568272702800124">
+                    <behavior id="wrap" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="277225653165430" speed="5">
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.501558" original-source="S:\Pulkit Singh\Dreamhack_Assets\ENV_PRP_Street_Lamp_01.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="OBJ_Camera" sid="750608194190041">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="939600928696915">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="608796686682627" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite" sid="468217914827290">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="247127492419620" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Lamp2" sid="307720805267253">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Wrap" sid="170156305511295">
+                    <behavior id="wrap" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="174071497978172" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501567" original-source="S:\Pulkit Singh\Dreamhack_Assets\ENV_PRP_Street_Lamp_02.png">
+                        <collision-poly>
+                            <point x="0.0681818" y="0.00940439" />
+                            <point x="0.5" y="0.00626959" />
+                            <point x="0.681818" y="0.0438871" />
+                            <point x="0.409091" y="0.498433" />
+                            <point x="0.409091" y="0.918495" />
+                            <point x="0.5" y="0.946708" />
+                            <point x="0.0227273" y="0.996865" />
+                            <point x="0.0909091" y="0.498433" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BG_Fence" sid="434590836626303">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\pbisht\Desktop\BG_Ground_01.png" />
+        </object-type>
+        <object-type name="CH_ENM_Shadow" sid="524933556373579">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="645744313934635">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="Inverse">
+                    <effect id="inverse" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="704696895320167" speed="5">
+                    <frame duration="1" hotspotX="0.626667" hotspotY="0.0733333" original-source="S:\Pulkit Singh\Dreamhack_Assets\CH_Shadow.png">
+                        <collision-poly>
+                            <point x="0.786667" y="0.786667" />
+                            <point x="0.5" y="0.766667" />
+                            <point x="0.213333" y="0.786667" />
+                            <point x="0.926667" y="0.926667" />
+                            <point x="0.5" y="0.986667" />
+                            <point x="0.08" y="0.92" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="FX_Laser" sid="313757418471320">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="GlowHorizontal">
+                    <effect id="glowhorizontal" />
+                </effect-type>
+                <effect-type name="ScanLines">
+                    <effect id="scanlines" />
+                </effect-type>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="916076626455068" speed="33">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="UI_FlashFilter" sid="535519841073564">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable comment="Done once after punch" name="Done" sid="705323894054893" type="boolean" />
+            </instance-variables>
+            <effects>
+                <effect-type name="Screen">
+                    <effect id="screen" />
+                </effect-type>
+                <effect-type name="Inverse">
+                    <effect id="inverse" />
+                </effect-type>
+            </effects>
+            <texture />
+        </object-type>
+        <object-type name="BillBoard" sid="581484688928097">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="392387074093939">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="755034385898385" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501341" original-source="S:\Pulkit Singh\Dreamhack_Assets\ENV_PRP_Billboard_01.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="UI_Score" sid="946361428004068">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="LampLight" sid="150971577527649">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="311644759274256" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501818" original-source="S:\Pulkit Singh\Dreamhack_Assets\ENV_PRP_Torchlight_01.png">
+                        <collision-poly>
+                            <point x="0.333333" y="0.167273" />
+                            <point x="0.5" y="0.00363636" />
+                            <point x="0.666667" y="0.167273" />
+                            <point x="0.804348" y="0.498182" />
+                            <point x="0.927536" y="0.963636" />
+                            <point x="0.5" y="0.996364" />
+                            <point x="0.0724638" y="0.963636" />
+                            <point x="0.195652" y="0.498182" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="UI_Fader" sid="897747689643160">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Fade" sid="302103308854989">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="9patch" sid="666823434244263">
+            <plugin id="NinePatch" />
+            <texture original-source="C:\Users\pbisht\Desktop\Base2.png" />
+        </object-type>
+        <object-type name="Particles" sid="228013891085487">
+            <plugin id="Particles" />
+            <texture original-source="S:\Pulkit Singh\Dreamhack_Assets\Gear.png" />
+        </object-type>
+        <object-type name="Audio" sid="383687762916762">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Function" sid="536295541946191">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="UI_X" sid="745665034662974">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="UI_ScoreMultiplier" sid="991582808704379">
+            <plugin id="Text" />
+            <instance-variables>
+                <instance-variable name="ToIncrease" sid="383088039254303" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="UI_Message" sid="658040685152468">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="145472402682807">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="110341231158760">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="ToBeSorted" plugin-id="Sprite" sid="645943154771603">
+            <members>
+                <member>CH_Enemy</member>
+                <member>CH_Maahi</member>
+            </members>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="5" />
+        <global-instance type="Audio" uid="31">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Function" uid="32" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder>
+        <file name="Depth_Charge.ogg" />
+        <file name="Heavy_Hitter.ogg" />
+        <file name="Thrashing_Around.ogg" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

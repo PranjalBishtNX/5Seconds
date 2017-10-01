@@ -1,0 +1,1038 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="MissCheckedWave" sid="512837220977942" static="0" type="number">11</variable>
+        <variable constant="0" name="Score" sid="318266565369069" static="0" type="number">0</variable>
+        <variable constant="0" name="ScoreMultiplier" sid="991921900674690" static="0" type="number">1</variable>
+        <variable constant="0" name="WaveMin" sid="608374549495080" static="0" type="number">1</variable>
+        <variable constant="0" name="WaveMax" sid="135799775469782" static="0" type="number">4</variable>
+        <variable constant="0" name="WaveSpawnProbability" sid="823475310896565" static="0" type="number">90</variable>
+        <variable constant="0" name="PunchTimeLeft" sid="989153404292251" static="0" type="number">0</variable>
+        <variable constant="0" name="BuildingClusterProbability" sid="119425216748218" static="0" type="number">50</variable>
+        <variable constant="0" name="EnemySpawnTime" sid="702808287134185" static="0" type="number">1.5</variable>
+        <variable constant="0" name="WaveSpawnTime" sid="775517346833182" static="0" type="number">0.15</variable>
+        <variable constant="0" name="PlayerAccel" sid="291905025971482" static="0" type="number">0.5</variable>
+        <variable constant="0" name="PlayerSpeedMin" sid="501352117882359" static="0" type="number">9</variable>
+        <variable constant="0" name="PlayerSpeedMax" sid="566421769087816" static="0" type="number">15</variable>
+        <variable constant="0" name="PlayerSpeedBase" sid="788633850545339" static="0" type="number">10</variable>
+        <variable constant="0" name="PlayerSpeed" sid="509405124980030" static="0" type="number">8</variable>
+        <variable comment="Distance at which to spawn buildings" constant="0" name="Buildistace" sid="644871118296149" static="0" type="number">0</variable>
+        <variable comment="Vertical player movement speed" constant="0" name="PlayerYSpeed" sid="475469390394837" static="0" type="number">5</variable>
+        <event-block sid="162308880161278">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="378260045286459" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="448505094905994" type="CH_Shadow">
+                    <param id="0" name="Pin to">CH_Maahi</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="851842261306902" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="548282457599571" type="CH_Maahi">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="552054205183808" type="System">
+                    <param id="0" name="Variable">PlayerYSpeed</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="0" name="Play" sid="843917712988673" type="Audio">
+                    <param id="0" name="Audio file">Heavy_Hitter</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;Start&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="767446497404869" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="722827271271251" type="System">
+                    <param id="0" name="Variable">ScoreMultiplier</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="232504589766866" type="System">
+                    <param id="0" name="Variable">PlayerSpeed</param>
+                    <param id="1" name="Value">8</param>
+                </action>
+                <action id="-9" name="Set value" sid="681136411867505" type="System">
+                    <param id="0" name="Variable">MissCheckedWave</param>
+                    <param id="1" name="Value">11</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="465623327702706">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="209782023626123" type="System" />
+            </conditions>
+            <actions>
+                <action id="-17" name="Move forward" sid="376806156222893" type="BG_BackBuildings">
+                    <param id="0" name="Distance">-PlayerSpeed/10*timescale</param>
+                </action>
+                <action id="-17" name="Move forward" sid="726395862372901" type="BG_Road">
+                    <param id="0" name="Distance">-(PlayerSpeed)*timescale</param>
+                </action>
+                <action id="-17" name="Move forward" sid="813173368093951" type="BG_Fence">
+                    <param id="0" name="Distance">-(PlayerSpeed)*timescale*0.9</param>
+                </action>
+                <action id="-17" name="Move forward" sid="534992786227748" type="CH_Enemy">
+                    <param id="0" name="Distance">(-PlayerSpeed - 1 - random(21)/20)*timescale</param>
+                </action>
+                <action id="-17" name="Move forward" sid="671826947386275" type="Lamp">
+                    <param id="0" name="Distance">-PlayerSpeed*timescale</param>
+                </action>
+                <action id="-17" name="Move forward" sid="785375349966579" type="Lamp2">
+                    <param id="0" name="Distance">-(PlayerSpeed+1)*timescale</param>
+                </action>
+                <action id="-17" name="Move forward" sid="801569104096946" type="BG_FrontBuildings">
+                    <param id="0" name="Distance">-(PlayerSpeed)*timescale</param>
+                </action>
+                <action id="-10" name="Add to" sid="976157704692200" type="System">
+                    <param id="0" name="Variable">Buildistace</param>
+                    <param id="1" name="Value">PlayerSpeed*timescale</param>
+                </action>
+                <action id="-9" name="Set value" sid="625552886604733" type="System">
+                    <param id="0" name="Variable">PunchTimeLeft</param>
+                    <param id="1" name="Value">PunchTimeLeft&gt;0?PunchTimeLeft-1:0</param>
+                </action>
+                <action id="-10" name="Set value" sid="831815214585923" type="CH_Maahi">
+                    <param id="0" name="Instance variable">PunchCooldown</param>
+                    <param id="1" name="Value">Self.PunchCooldown&gt;0?Self.PunchCooldown-1:0</param>
+                </action>
+                <action id="0" name="Set text" sid="548987104201010" type="UI_Score">
+                    <param id="0" name="Text">Score</param>
+                </action>
+                <action id="0" name="Set text" sid="473811799565822" type="UI_ScoreMultiplier">
+                    <param id="0" name="Text">ScoreMultiplier</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="945216865792433">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="433308306511547" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Set speed" sid="163069339656957" type="CH_Maahi">
+                            <param id="0" name="Speed">PlayerSpeed - 2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="539791695121000">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="601943207625717" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;Punch&quot;</param>
+                        </condition>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="511912553275163" type="CH_Maahi">
+                            <param id="0" name="Object">OBJ_Wall</param>
+                            <param id="1" name="Offset X">30</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="580310428919779" type="CH_Maahi">
+                            <param id="0" name="X">Self.X+3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="192642964418376">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="468363201368456" type="OBJ_BuildingSpawner">
+                    <param id="0" name="Instance variable">On</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="315783897297201" type="System">
+                    <param id="0" name="Variable">Buildistace</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">800</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="961778696445865" type="OBJ_BuildingSpawner">
+                    <param id="0" name="Instance variable">Alternate</param>
+                    <param id="1" name="Value">(self.Alternate=0)?1:0</param>
+                </action>
+                <action id="-9" name="Set value" sid="816839493494476" type="System">
+                    <param id="0" name="Variable">Buildistace</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="360949994444242" type="OBJ_BuildingSpawner">
+                    <param id="0" name="Object">BG_FrontBuildings</param>
+                    <param id="1" name="Layer">Self.LayerName</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="779336237008588" type="BG_FrontBuildings">
+                    <param id="0" name="Frame number">round(random(BG_FrontBuildings.AnimationFrameCount))</param>
+                </action>
+                <action id="-1" name="Set X" sid="838648428423138" type="BG_FrontBuildings">
+                    <param id="0" name="X">self.X - 200 + random(400)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="154587869819870">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="863507452995463" type="System">
+                            <param id="0" name="Variable">BuildingClusterProbability</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">random(100)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="507324422156339" type="BG_FrontBuildings">
+                            <param id="0" name="Object">BG_FrontBuildings</param>
+                            <param id="1" name="Layer">Self.LayerName</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="916633581461022" type="BG_FrontBuildings">
+                            <param id="0" name="Frame number">random(BG_FrontBuildings.AnimationFrameCount-1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="496139994199147" title="Waves">
+            <sub-events>
+                <event-block sid="725478991082557">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="261715829301021" type="System">
+                            <param id="0" name="Interval (seconds)">EnemySpawnTime *PlayerSpeedBase/PlayerSpeed +random(10)/10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="534240726575136" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">CurrentWave</param>
+                            <param id="1" name="Value">(Self.CurrentWave+1)%10</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="860601048672087" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnX</param>
+                            <param id="1" name="Value">random(self.Width)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="207941776177438" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnY</param>
+                            <param id="1" name="Value">random(self.Height -20)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="229079607521332" type="OBJ_EnemySpawner">
+                            <param id="0" name="Object">CH_Enemy</param>
+                            <param id="1" name="Layer">Self.LayerName</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="184540000913782" type="CH_Enemy">
+                            <param id="0" name="Y">self.Y +20+ OBJ_EnemySpawner.NextSpawnY</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="860283972469151" type="CH_Enemy">
+                            <param id="0" name="X">self.X + OBJ_EnemySpawner.NextSpawnX</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="361780239558381" type="CH_Enemy">
+                            <param id="0" name="Instance variable">WaveID</param>
+                            <param id="1" name="Value">OBJ_EnemySpawner.CurrentWave</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="375317102236150" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">EnmInWave</param>
+                            <param id="1" name="Value">WaveMin + random(WaveMax-WaveMin)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="786111958093005">
+                            <conditions>
+                                <condition id="-10" name="For" sid="429739806219362" type="System">
+                                    <param id="0" name="Name">&quot;i&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">OBJ_EnemySpawner.EnmInWave</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="795383074392387" type="System">
+                                    <param id="0" name="Seconds">WaveSpawnTime*PlayerSpeedBase/PlayerSpeed * loopindex</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="865892169533366" type="OBJ_EnemySpawner">
+                                    <param id="0" name="Instance variable">NextSpawnX</param>
+                                    <param id="1" name="Value">Self.NextSpawnX-10 + random(21)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="695297816462631" type="OBJ_EnemySpawner">
+                                    <param id="0" name="Instance variable">NextSpawnY</param>
+                                    <param id="1" name="Value">Self.NextSpawnY-40+ random(81)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="388572546721202">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="691438973099344" type="OBJ_EnemySpawner">
+                                            <param id="0" name="Instance variable">NextSpawnY</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">20 </param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="688947289590520" type="OBJ_EnemySpawner">
+                                            <param id="0" name="Instance variable">NextSpawnY</param>
+                                            <param id="1" name="Value">40</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="149461736911630" type="OBJ_EnemySpawner">
+                                            <param id="0" name="Object">CH_Enemy</param>
+                                            <param id="1" name="Layer">Self.LayerName</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="-1" name="Set X" sid="714498229504704" type="CH_Enemy">
+                                            <param id="0" name="X">self.X + OBJ_EnemySpawner.NextSpawnX</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="683787824619411" type="CH_Enemy">
+                                            <param id="0" name="Y">self.Y + OBJ_EnemySpawner.NextSpawnY</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="682919187677524" type="CH_Enemy">
+                                            <param id="0" name="Instance variable">WaveID</param>
+                                            <param id="1" name="Value">OBJ_EnemySpawner.CurrentWave</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="982406786995043">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="304773181444888" type="System" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="616918598749657">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="991189716358870" type="OBJ_EnemySpawner">
+                                                    <param id="0" name="Instance variable">NextSpawnY</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">Self.Height</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="526757232668636" type="OBJ_EnemySpawner">
+                                                    <param id="0" name="Instance variable">NextSpawnY</param>
+                                                    <param id="1" name="Value">Self.Height -20</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="950438077031090" type="OBJ_EnemySpawner">
+                                                    <param id="0" name="Object">CH_Enemy</param>
+                                                    <param id="1" name="Layer">Self.LayerName</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-1" name="Set X" sid="708281045065875" type="CH_Enemy">
+                                                    <param id="0" name="X">self.X + OBJ_EnemySpawner.NextSpawnX</param>
+                                                </action>
+                                                <action id="-2" name="Set Y" sid="588943205665393" type="CH_Enemy">
+                                                    <param id="0" name="Y">self.Y + OBJ_EnemySpawner.NextSpawnY</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="583570931818955" type="CH_Enemy">
+                                                    <param id="0" name="Instance variable">WaveID</param>
+                                                    <param id="1" name="Value">OBJ_EnemySpawner.CurrentWave</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="445439283957060">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="815918602820110" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="865520740460421" type="OBJ_EnemySpawner">
+                                                    <param id="0" name="Object">CH_Enemy</param>
+                                                    <param id="1" name="Layer">Self.LayerName</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="-1" name="Set X" sid="857323772590573" type="CH_Enemy">
+                                                    <param id="0" name="X">self.X + OBJ_EnemySpawner.NextSpawnX</param>
+                                                </action>
+                                                <action id="-2" name="Set Y" sid="692408043951667" type="CH_Enemy">
+                                                    <param id="0" name="Y">self.Y + OBJ_EnemySpawner.NextSpawnY</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="755664628297232" type="CH_Enemy">
+                                                    <param id="0" name="Instance variable">WaveID</param>
+                                                    <param id="1" name="Value">OBJ_EnemySpawner.CurrentWave</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="632903351415805">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="389217432121396" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnY</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">20 </param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="867600285334711" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnY</param>
+                            <param id="1" name="Value">40</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="881059064129439">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="465965216502558" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnY</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">Self.Height</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="384978117864548" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnY</param>
+                            <param id="1" name="Value">Self.Height -20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="159373104465447">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="256970529092187" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnX</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">Self.Width</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="605197681303160" type="OBJ_EnemySpawner">
+                            <param id="0" name="Instance variable">NextSpawnX</param>
+                            <param id="1" name="Value">Self.Width/2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="304955330753221" title="Warping">
+            <sub-events>
+                <event-block sid="434404101077997">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="986368116681265" type="BG_Road">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-1600</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="446152791005196" type="BG_Road">
+                            <param id="0" name="X">self.X+1600 - 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="389322471893961">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="425083880407634" type="BG_Fence">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-1600</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="704204852187805" type="BG_Fence">
+                            <param id="0" name="X">self.X+1600 - 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="490980486778388">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="336578742266948" type="BG_BackBuildings">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-1600</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="400154285570913" type="BG_BackBuildings">
+                            <param id="0" name="X">self.X+1600 -1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="824766611241175" title="Controls and Punching Anims">
+            <sub-events>
+                <event-block sid="871647855874842">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="656441708431857" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="608871856536061" type="CH_Maahi">
+                            <param id="0" name="Object">OBJ_Wall</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-PlayerYSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="401286195079464" type="CH_Maahi">
+                            <param id="0" name="Y">self.Y - PlayerYSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="906774666011542">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="446875999415000" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="601811807019171" type="CH_Maahi">
+                            <param id="0" name="Object">OBJ_Wall</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">PlayerYSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="560385145189518" type="CH_Maahi">
+                            <param id="0" name="Y">self.Y + PlayerYSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="310931505140214">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="538912635204885" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="819004188051696" type="System">
+                            <param id="0" name="First value">timescale</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">0.05</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="383965128578392" type="CH_Maahi">
+                            <param id="0" name="Instance variable">PunchCooldown</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="940991792296551" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;Punch&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="780435042471403" type="CH_Maahi">
+                            <param id="0" name="Instance variable">Walkin</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="556994564705733" type="System">
+                            <param id="0" name="Variable">PunchTimeLeft</param>
+                            <param id="1" name="Value">18</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="454701840579953" type="CH_Maahi">
+                            <param id="0" name="Instance variable">PunchCooldown</param>
+                            <param id="1" name="Value">35</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="455087788445082">
+                            <conditions>
+                                <condition id="9" inverted="1" name="Is overlapping at offset" sid="281164010729388" type="CH_Maahi">
+                                    <param id="0" name="Object">OBJ_Wall</param>
+                                    <param id="1" name="Offset X">30</param>
+                                    <param id="2" name="Offset Y">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="431487548061961" type="System">
+                                    <param id="0" name="Variable">PlayerSpeed</param>
+                                    <param id="1" name="Value">20</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="269599647555934">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="912265252838318" type="CH_Maahi">
+                            <param id="0" name="Instance variable">Walkin</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="177268610368241">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="871654332522970" type="System">
+                                    <param id="0" name="Variable">PunchTimeLeft</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="313838079035377" type="CH_Maahi">
+                                    <param id="0" name="Animation">&quot;PunchComeback&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="699079064286949" type="CH_Maahi">
+                                    <param id="0" name="Instance variable">Walkin</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="666876557890102" type="UI_FlashFilter">
+                                    <param id="0" name="Instance variable">Done</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="954590388159414">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="278278054114894" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;PunchComeback&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="254985802857815" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="590957880234436" type="CH_Maahi">
+                            <param id="0" name="Instance variable">Walkin</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324867283291940">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="316239638445923" type="CH_Maahi">
+                            <param id="0" name="Object">CH_Enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="639111782612557">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="111127877594238" type="UI_FlashFilter">
+                                    <param id="0" name="Instance variable">Done</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="609490055651353" type="UI_FlashFilter">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="838005342157273" type="System">
+                                    <param id="0" name="Seconds">0.05</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="914626915835025" type="UI_FlashFilter">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="371042141661910" type="UI_FlashFilter">
+                                    <param id="0" name="Instance variable">Done</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="124179993859217">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="735564257128389" type="CH_Maahi">
+                                    <param id="0" name="Animation">&quot;Punch&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="205623473194189" type="CH_Maahi">
+                                    <param id="0" name="Object">FX_Laser</param>
+                                    <param id="1" name="Layer">&quot;Background&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-29" name="Move to object" sid="430190916260989" type="FX_Laser">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Object">BG_BackBuildings</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="773361290586314" type="FX_Laser">
+                                    <param id="0" name="X">300+Random(1000)</param>
+                                    <param id="1" name="Y">400</param>
+                                </action>
+                                <action id="9" name="Set scale" sid="760646993684882" type="FX_Laser">
+                                    <param id="0" name="Scale">1.5+Random(6)/10</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="489302966909684" type="FX_Laser">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">-100 + random(200)</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="638936836044181" type="UI_Filter">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">-100 + Random(200)</param>
+                                </action>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="376434418104882" type="OBJ_Camera">
+                                    <param id="0" name="Magnitude">100</param>
+                                    <param id="1" name="Duration">0.1</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="346314140479043" type="CH_Enemy">
+                                    <param id="0" name="Object">Particles</param>
+                                    <param id="1" name="Layer">&quot;Foreground&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-2" name="Set Y" sid="421925430278656" type="Particles">
+                                    <param id="0" name="Y">Self.Y-20</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="753748703469343" type="CH_Enemy" />
+                                <action id="-16" name="Wait" sid="125207126792841" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="989185672001217" type="Function">
+                                    <param id="0" name="Name">&quot;EnemyKilled&quot;</param>
+                                    <param id="1" name="Parameter {n}">CH_Enemy.WaveID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="905434669084438" type="System">
+                                    <param id="0" name="Variable">PunchTimeLeft</param>
+                                    <param id="1" name="Value">32</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="414472260428266" type="System">
+                                    <param id="0" name="Time scale">0.3</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="120859525674051" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="227231465290154" type="System">
+                                    <param id="0" name="Time scale">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="661131144751265">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="601398263798409" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="271205207346578" type="UI_FlashFilter">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="590562234869157" type="System">
+                                    <param id="0" name="Variable">PlayerYSpeed</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="222968661006371" type="UI_Fader" />
+                                <action behavior="Platform" id="11" name="Set enabled" sid="394948247659899" type="CH_Maahi">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="686680100502276" type="System">
+                                    <param id="0" name="Time scale">0.01</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="630176645930092" type="System">
+                                    <param id="0" name="Seconds">0.02</param>
+                                </action>
+                                <action id="-26" name="Restart layout" sid="710618024262269" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="144027910735210" title="Speeding Movement">
+            <sub-events>
+                <event-block sid="716468516200604">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="181482408734099" type="CH_Maahi">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="145441755011500">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="193578971048132" type="CH_Maahi">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">400</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Key is down" sid="876060802759269" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="144603520460947" type="CH_Maahi">
+                                    <param id="0" name="X">Self.X-PlayerAccel*5*timescale</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="350367522811173">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="659608645350291" type="CH_Maahi">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">400</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Key is down" sid="293805987134315" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="862216206661084" type="CH_Maahi">
+                                    <param id="0" name="X">Self.X+PlayerAccel*5*timescale</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="279055647468627">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="877812557439655" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="899530060198779" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">PlayerSpeedMax</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="195932399130762" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">PlayerAccel</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="528931481782825">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="743006426025791" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="499052473637661" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">PlayerSpeedMin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="678273041427711" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">PlayerAccel</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="200257081747942">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="447052634858148" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="613815567255382" type="CH_Maahi">
+                            <param id="0" name="Max Speed">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="651300350730563">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="875781659852240" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">PlayerSpeedMax</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="935817878016753" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">0.2*(PlayerSpeed - PlayerSpeedMax)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="358815473292611">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="319489841042695" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">PlayerSpeedMin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="658315016306580" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">0.2*(PlayerSpeedMin - PlayerSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="140203855241067">
+            <conditions>
+                <condition id="-24" name="For Each (ordered)" sid="520424317397793" type="System">
+                    <param id="0" name="Object">ToBeSorted</param>
+                    <param id="1" name="Expression">ToBeSorted.Y</param>
+                    <param id="2" name="Order">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-24" name="Move to top" sid="473533949380068" type="ToBeSorted" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="195223302857531">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="250927175112791" type="BG_FrontBuildings">
+                    <param id="0" name="Object">BG_FrontBuildings</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="307144506975035" type="BG_FrontBuildings">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">-800</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="324445461902892" type="BG_FrontBuildings">
+                    <param id="0" name="Comparison">1</param>
+                    <param id="1" name="Y co-ordinate">OBJ_BuildingSpawner.Y</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="930630762771853" type="BG_FrontBuildings" />
+            </actions>
+        </event-block>
+        <event-block sid="521101024170786">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="951713157768669" type="CH_Enemy">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">-200</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="185992041596067" type="CH_Enemy" />
+            </actions>
+        </event-block>
+        <event-block sid="729806377413643">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="346300018215085" type="CH_Enemy">
+                    <param id="0" name="Instance variable">MissedChecked</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="832198779483840" type="CH_Enemy">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">CH_Maahi.X - 100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="765715098479510" type="CH_Enemy">
+                    <param id="0" name="Instance variable">MissedChecked</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="677474821425149" type="System">
+                    <param id="0" name="Variable">MissCheckedWave</param>
+                    <param id="1" name="Value">CH_Enemy.WaveID</param>
+                </action>
+                <action id="0" name="Call function" sid="847852612095802" type="Function">
+                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Missed!&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="607451154275148">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="695714410098781" type="CH_Enemy">
+                    <param id="0" name="Instance variable">MissedChecked</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="428267578013231" type="CH_Enemy">
+                    <param id="0" name="Instance variable">WaveID</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">MissCheckedWave</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="783226384890082" type="CH_Enemy">
+                    <param id="0" name="Instance variable">MissedChecked</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="550401187279616">
+            <conditions>
+                <condition id="-18" name="On created" sid="543791558513411" type="CH_Enemy" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="371142919249362" type="CH_Enemy">
+                    <param id="0" name="Object">CH_ENM_Shadow</param>
+                    <param id="1" name="Layer">Self.LayerName</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="828634626674060" type="CH_ENM_Shadow">
+                    <param id="0" name="X">Self.X + 10</param>
+                    <param id="1" name="Y">Self.Y-100</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="610505424646475" type="CH_ENM_Shadow">
+                    <param id="0" name="Pin to">CH_Enemy</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="9" name="Set scale" sid="706894541454641" type="CH_ENM_Shadow">
+                    <param id="0" name="Scale">0.75</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="991991347927927">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="853143307429942" type="CH_Enemy" />
+                <condition id="1" name="Is overlapping another object" sid="106028850515436" type="CH_Enemy">
+                    <param id="0" name="Object">CH_ENM_Shadow</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="421004335407156" type="CH_ENM_Shadow" />
+            </actions>
+        </event-block>
+        <event-block sid="765359875258030">
+            <conditions>
+                <condition id="4" name="On finished" sid="592019270302508" type="FX_Laser">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="210843454783197" type="FX_Laser" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="266171490881612" title="Scoring">
+            <sub-events>
+                <event-block sid="639920169397023">
+                    <conditions>
+                        <condition id="0" name="On function" sid="234531573177009" type="Function">
+                            <param id="0" name="Name">&quot;EnemyKilled&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="509627627569455" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">50*ScoreMultiplier</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="985434803562244">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="735469103807708" type="CH_Enemy">
+                                    <param id="0" name="Instance variable">WaveID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="999081457846108" type="Function">
+                                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;True!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="481286804750219">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="463206216296851" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="923700286652699" type="Function">
+                                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Multiplier + 1!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="813660813384851">
+            <conditions>
+                <condition behavior="Fade" id="0" name="On fade-out finished" sid="473589205778763" type="UI_Message" />
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="883761926713537">
+            <conditions>
+                <condition id="0" name="On function" sid="979261271177445" type="Function">
+                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="761722325171455" type="CH_Maahi">
+                    <param id="0" name="Object">UI_Message</param>
+                    <param id="1" name="Layer">&quot;Text&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="957189497209113" type="UI_Message">
+                    <param id="0" name="X">800</param>
+                    <param id="1" name="Y">450</param>
+                </action>
+                <action id="0" name="Set text" sid="645624178401816" type="UI_Message">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action behavior="Fade" id="0" name="Restart fade" sid="780420356299296" type="UI_Message" />
+                <action behavior="Bullet" id="5" name="Set enabled" sid="370248087267808" type="UI_Message">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
