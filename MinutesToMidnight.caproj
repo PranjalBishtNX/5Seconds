@@ -70,6 +70,7 @@
             <instance-variables>
                 <instance-variable name="Walkin" sid="190174376838758" type="boolean" />
                 <instance-variable name="PunchCooldown" sid="127653194867744" type="number" />
+                <instance-variable name="LastEnemyKilledWaveID" sid="923884832959395" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="BoundToLayout" sid="351402816812104">

@@ -242,6 +242,7 @@
                     <instance-variables>
                         <Walkin>true</Walkin>
                         <PunchCooldown>0</PunchCooldown>
+                        <LastEnemyKilledWaveID>11</LastEnemyKilledWaveID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="BoundToLayout">
@@ -1040,7 +1041,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>DS-Digital,-96,400,1</font>
+                        <font>DS-Digital,-64,400,1</font>
                         <color>255,255,255</color>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>

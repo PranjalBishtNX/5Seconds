@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="EnemyCounter" sid="490945071204757" static="0" type="number">0</variable>
         <variable constant="0" name="MissCheckedWave" sid="512837220977942" static="0" type="number">11</variable>
         <variable constant="0" name="Score" sid="318266565369069" static="0" type="number">0</variable>
         <variable constant="0" name="ScoreMultiplier" sid="991921900674690" static="0" type="number">1</variable>
@@ -656,10 +657,11 @@
                                 <action id="-2" name="Set Y" sid="421925430278656" type="Particles">
                                     <param id="0" name="Y">Self.Y-20</param>
                                 </action>
-                                <action id="-9" name="Destroy" sid="753748703469343" type="CH_Enemy" />
-                                <action id="-16" name="Wait" sid="125207126792841" type="System">
-                                    <param id="0" name="Seconds">0.1</param>
+                                <action id="-10" name="Set value" sid="616247126961150" type="CH_Maahi">
+                                    <param id="0" name="Instance variable">LastEnemyKilledWaveID</param>
+                                    <param id="1" name="Value">CH_Enemy.WaveID</param>
                                 </action>
+<<<<<<< HEAD
                                 <action id="7" name="Play (by name)" sid="518836126545291" type="Audio">
                                     <param id="0" name="Folder">0</param>
                                     <param id="1" name="Audio file name">&quot;Punch_01&quot;&amp;choose(&quot;Punch_02&quot;,&quot;Punch_03&quot;)</param>
@@ -667,9 +669,12 @@
                                     <param id="4" name="Volume">0</param>
                                     <param id="2" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
+=======
+                                <action id="-9" name="Destroy" sid="753748703469343" type="CH_Enemy" />
+>>>>>>> 738978e4e8336208be4e8435d2cd97d4619e9e35
                                 <action id="0" name="Call function" sid="989185672001217" type="Function">
                                     <param id="0" name="Name">&quot;EnemyKilled&quot;</param>
-                                    <param id="1" name="Parameter {n}">CH_Enemy.WaveID</param>
+                                    <param id="1" name="Parameter {n}">CH_Maahi.LastEnemyKilledWaveID</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="905434669084438" type="System">
                                     <param id="0" name="Variable">PunchTimeLeft</param>
@@ -904,6 +909,10 @@
                     <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
                     <param id="1" name="Parameter {n}">&quot;Missed!&quot;</param>
                 </action>
+                <action id="-9" name="Set value" sid="605563345633648" type="System">
+                    <param id="0" name="Variable">ScoreMultiplier</param>
+                    <param id="1" name="Value">1</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="607451154275148">
@@ -983,31 +992,36 @@
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="985434803562244">
+                        <event-block sid="444623842051187">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="735469103807708" type="CH_Enemy">
+                                <condition id="-7" name="Compare instance variable" sid="563118682458810" type="CH_Enemy">
                                     <param id="0" name="Instance variable">WaveID</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">Function.Param(0)</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="999081457846108" type="Function">
-                                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;True!&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="481286804750219">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="463206216296851" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="923700286652699" type="Function">
-                                    <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;Multiplier + 1!&quot;</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="354374621017555">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="602158373574497" type="System">
+                                            <param id="0" name="First value">CH_Enemy.PickedCount</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="783486291317445" type="Function">
+                                            <param id="0" name="Name">&quot;DisplayMessage&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Combo!&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="439285204788998" type="System">
+                                            <param id="0" name="Variable">ScoreMultiplier</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -1032,8 +1046,8 @@
                     <param id="2" name="Image point">0</param>
                 </action>
                 <action id="-3" name="Set position" sid="957189497209113" type="UI_Message">
-                    <param id="0" name="X">800</param>
-                    <param id="1" name="Y">450</param>
+                    <param id="0" name="X">CH_Maahi.X</param>
+                    <param id="1" name="Y">CH_Maahi.Y - 220</param>
                 </action>
                 <action id="0" name="Set text" sid="645624178401816" type="UI_Message">
                     <param id="0" name="Text">Function.Param(0)</param>
