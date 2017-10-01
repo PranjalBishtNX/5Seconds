@@ -660,6 +660,13 @@
                                 <action id="-16" name="Wait" sid="125207126792841" type="System">
                                     <param id="0" name="Seconds">0.1</param>
                                 </action>
+                                <action id="7" name="Play (by name)" sid="518836126545291" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;Punch_01&quot;&amp;choose(&quot;Punch_02&quot;,&quot;Punch_03&quot;)</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
                                 <action id="0" name="Call function" sid="989185672001217" type="Function">
                                     <param id="0" name="Name">&quot;EnemyKilled&quot;</param>
                                     <param id="1" name="Parameter {n}">CH_Enemy.WaveID</param>
@@ -676,6 +683,9 @@
                                 </action>
                                 <action id="-13" name="Set time scale" sid="227231465290154" type="System">
                                     <param id="0" name="Time scale">1</param>
+                                </action>
+                                <action id="34" name="Schedule next play" sid="147557895645492" type="Audio">
+                                    <param id="0" name="Time">1</param>
                                 </action>
                             </actions>
                         </event-block>

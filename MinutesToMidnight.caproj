@@ -600,7 +600,15 @@
         </global-instance>
         <global-instance type="Function" uid="32" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="GG.ogg" />
+        <file name="Nice.ogg" />
+        <file name="Punch_02.ogg" />
+        <file name="Punch_03.ogg" />
+        <file name="Punch_01.ogg" />
+        <file name="Wow.ogg" />
+        <file name="Wow_n_Nice_Combo.ogg" />
+    </sounds-folder>
     <music-folder>
         <file name="Depth_Charge.ogg" />
         <file name="Heavy_Hitter.ogg" />
